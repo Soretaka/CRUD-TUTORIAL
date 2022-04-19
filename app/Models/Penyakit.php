@@ -11,8 +11,7 @@ class Penyakit extends Model
     protected $table = 'penyakits';
     protected $guarded = [];
     protected $fillable =[
-        'Penyakit',
-        'pengumumen_id'
+        'Penyakit'
     ];
     public function pengumumen(){
         return $this->belongsTo(pengumumen::class);

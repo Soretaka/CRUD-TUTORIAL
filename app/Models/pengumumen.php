@@ -12,7 +12,8 @@ class pengumumen extends Model
     protected $guarded = [];
     protected $fillable =[
         'Nama',
-        'Umur'
+        'Umur',
+        'Penyakit_id'
     ];
     public function penyakit(){
         return $this->hasMany(Penyakit::class);

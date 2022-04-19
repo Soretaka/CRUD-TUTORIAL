@@ -30,8 +30,8 @@
                         {{-- <form id="form-login" action="{{ route('artikel.buat-data') }}" method="get"> --}}
                             {{-- @csrf --}}
                             <div>
-                                <input class="mt-3 form-control form-control-lg" name="title" type="text"
-                                       placeholder="Title" value="{{ $data->nama ? $data->nama : 'Tidak Ada Data' }}" readonly>
+                                <input class="mt-3 form-control form-control-lg" name="nama" type="text"
+                                       placeholder="nama" value="{{ $data->nama ? $data->nama : 'Tidak Ada Data' }}" readonly>
                             </div>
 
                             @error('title')
@@ -53,7 +53,7 @@
 
                             <div>
                                 <input class="mt-3 form-control form-control-lg" name="penyakit" type="text"
-                                       placeholder="Penyakit" value="{{ $data->penyakit->penyakit ? $data->penyakit->penyakit : 'Tidak Ada Data' }}" readonly>
+                                       placeholder="Penyakit" value="{{ $data->penyakit_id? $data->penyakit_id: 'Tidak Ada Data' }}" readonly>
                             </div>
 
                             @error('penyakit')

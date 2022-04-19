@@ -65,6 +65,7 @@ class PengumumenController extends Controller
     public function show($id)
     {
         $data = pengumumen::find($id);
+        $pengumumen = Penyakit::find($data->penyakit_id);
         return view('detail-data',[
             'data'=>$data
         ]);
