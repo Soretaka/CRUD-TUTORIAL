@@ -44,7 +44,7 @@ class PengumumenController extends Controller
             'Umur' => 'required|integer',
             'Penyakit' => 'required'
         ]);
-        $penyakit=Penyakit::create([
+        $penyakit=Penyakit::updateOrCreate([
             'Penyakit' => $request['Penyakit']
         ]);
         $pengumumen=Pengumumen::create([

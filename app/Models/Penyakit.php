@@ -14,6 +14,6 @@ class Penyakit extends Model
         'Penyakit'
     ];
     public function pengumumen(){
-        return $this->belongsTo(pengumumen::class);
+        return $this->hasMany(pengumumen::class);
     }
 }
