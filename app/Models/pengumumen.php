@@ -13,7 +13,7 @@ class pengumumen extends Model
     protected $fillable =[
         'Nama',
         'Umur',
-        'Penyakit_id'
+        'penyakit_id'
     ];
     public function penyakit(){
         return $this->hasMany(Penyakit::class);

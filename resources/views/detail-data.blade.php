@@ -53,7 +53,7 @@
 
                             <div>
                                 <input class="mt-3 form-control form-control-lg" name="penyakit" type="text"
-                                       placeholder="Penyakit" value="{{ $data->penyakit_id? $data->penyakit_id: 'Tidak Ada Data' }}" readonly>
+                                       placeholder="Penyakit" value="{{ $Penyakit->penyakit? $Penyakit->penyakit: 'Tidak Ada Data' }}" readonly>
                             </div>
 
                             @error('penyakit')

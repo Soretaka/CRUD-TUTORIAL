@@ -50,7 +50,7 @@ class PengumumenController extends Controller
         $pengumumen=Pengumumen::create([
             'Nama' => $request['Nama'],
             'Umur' => $request['Umur'],
-            'Penyakit_id' => $penyakit->id
+            'penyakit_id' => $penyakit->id
         ]);
         return redirect()->route('home')->with('sukses', 'Penambahan Pengguna berhasil');
 
@@ -65,9 +65,10 @@ class PengumumenController extends Controller
     public function show($id)
     {
         $data = pengumumen::find($id);
-        $pengumumen = Penyakit::find($data->penyakit_id);
+        $penyakit = penyakit::find($data->penyakit_id);
         return view('detail-data',[
-            'data'=>$data
+            'data'=>$data,
+            'Penyakit'=>$penyakit
         ]);
     }
 
@@ -81,8 +82,10 @@ class PengumumenController extends Controller
     {
         // $data = pengumumen::find($id)
         $data = pengumumen::where('id',$id)->first();
+        $penyakit = penyakit::find($data->penyakit_id);
         return view ('edit-data',[
-            'data' => $data
+            'data' => $data,
+            'Penyakit' =>$penyakit
         ]);
 
     }
@@ -103,7 +106,7 @@ class PengumumenController extends Controller
         ]);
 
         $pengumuman = Pengumumen::findOrFail($id);
-        $penyakit = Penyakit::findOrFail($id);
+        $penyakit = Penyakit::findOrFail($pengumuman->penyakit_id);
         $pengumuman->update([
             'Nama' => $request['Nama'],
             'Umur' => $request['Umur']
@@ -122,7 +125,9 @@ class PengumumenController extends Controller
      */
     public function destroy($id)
     {
-        $pengumuman = Pengumumen::findOrFail($id)->delete();
+        $pengumuman = Pengumumen::findOrFail($id);
+        $pengumumen = Pengumumen::findOrFail($id)->delete();
+        $penyakit = penyakit::findOrFail($pengumuman->penyakit_id)->delete();
         return redirect()->route('home')->with('hapus_data', 'Penghapusan data berhasil');
     }
 }

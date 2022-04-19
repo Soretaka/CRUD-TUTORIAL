@@ -54,7 +54,7 @@
 
                             <div>
                                 <input class="mt-3 form-control form-control-lg @error('Penyakit') is-invalid @enderror" name="Penyakit" type="text"
-                                       placeholder="Penyakit" value="{{ $data->penyakit_id ? $data->penyakit_id : 'Tidak Ada Data' }}" autofocus required>
+                                       placeholder="Penyakit" value="{{ $Penyakit->penyakit ? $Penyakit->penyakit : 'Tidak Ada Data' }}" autofocus required>
                             </div>
  
                             @error('Penyakit')
