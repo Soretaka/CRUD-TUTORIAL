@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\pengumumen;
+use App\Models\Penyakit;
 
 class PengumumenController extends Controller
 {
@@ -43,7 +44,14 @@ class PengumumenController extends Controller
             'Umur' => 'required|integer',
             'Penyakit' => 'required'
         ]);
-        Pengumumen::create($validatedData);
+        $penyakit=Penyakit::create([
+            'Penyakit' => $request['Penyakit']
+        ]);
+        $pengumumen=Pengumumen::create([
+            'Nama' => $request['Nama'],
+            'Umur' => $request['Umur'],
+            'Penyakit_id' => $penyakit->id
+        ]);
         return redirect()->route('home')->with('sukses', 'Penambahan Pengguna berhasil');
 
     }
@@ -94,7 +102,14 @@ class PengumumenController extends Controller
         ]);
 
         $pengumuman = Pengumumen::findOrFail($id);
-        $pengumuman->update($validatedData);
+        $penyakit = Penyakit::findOrFail($id);
+        $pengumuman->update([
+            'Nama' => $request['Nama'],
+            'Umur' => $request['Umur']
+        ]);
+        $penyakit->update([
+            'Penyakit' => $request['Penyakit']
+        ]);
         return redirect()->route('home')->with('edit_data', 'Pengeditan Data berhasil');
     }
 

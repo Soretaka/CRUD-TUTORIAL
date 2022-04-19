@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Penyakit extends Model
 {
     use HasFactory;
-        protected $table = 'pengumumen';
+    protected $table = 'penyakits';
     protected $guarded = [];
     protected $fillable =[
-        'Nama',
-        'Umur',
-        'Penyakit'
+        'Penyakit',
+        'pengumumen_id'
     ];
+    public function pengumumen(){
+        return $this->belongsTo(pengumumen::class);
+    }
 }

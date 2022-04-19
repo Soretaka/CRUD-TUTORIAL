@@ -46,14 +46,14 @@
                             </div>
 
                             @error('isi')
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger">    
                                 umur Salah
                             </div>
                             @enderror
 
                             <div>
                                 <input class="mt-3 form-control form-control-lg" name="penyakit" type="text"
-                                       placeholder="Penyakit" value="{{ $data->penyakit ? $data->penyakit : 'Tidak Ada Data' }}" readonly>
+                                       placeholder="Penyakit" value="{{ $data->penyakit->penyakit ? $data->penyakit->penyakit : 'Tidak Ada Data' }}" readonly>
                             </div>
 
                             @error('penyakit')

@@ -15,9 +15,9 @@ class CreatePengumumenTable extends Migration
     {
         Schema::create('pengumumen', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('penyakit_id');
             $table->string('nama');
             $table->integer('umur');
-            $table->string('penyakit');
             $table->timestamps();
         });
     }
